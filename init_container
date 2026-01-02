@@ -1,0 +1,6 @@
+#!/usr/bin/sh
+mongod -f /etc/mongod.conf
+sleep 5
+mongosh --eval "printjson(rs.initiate())"
+sleep 5
+ROOT_URL=http://localhost:3000 PORT=3000 MONGO_URL=mongodb://localhost:27017/rocketchat?replicaSet=rs01 node /opt/rocketchat/main.js

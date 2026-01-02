@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+systemctl start mongod
+systemctl status mongod
+mongosh --eval "printjson(rs.initiate())"
+systemctl start rocketchat
+systemctl status rocketchat
+journalctl -f
